@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import './App.css';
+import { MainDiv } from "../styles/Form";
 import Table from "./Table";
 import Form from "./Form";
 
@@ -19,6 +19,7 @@ class EmployeeList extends Component {
       department: "",
       emailId: "",
       date: "",
+      show: false,
       items: [],
     };
   }
@@ -40,7 +41,18 @@ class EmployeeList extends Component {
       items,
       username: "",
       employeeId: "",
-      department: "",
+      department: "it",
+      emailId: "",
+      date: "",
+      show: false,
+    });
+  };
+
+  clearData = () => {
+    this.setState({
+      username: "",
+      employeeId: "",
+      department: "it",
       emailId: "",
       date: "",
     });
@@ -56,10 +68,21 @@ class EmployeeList extends Component {
     });
   };
 
+  handleChange = (e) => {
+    this.setState({ department: e.target.value });
+  };
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
   render() {
     return (
-      <div className="App">
-        <Table items={this.state.items} />
+      <MainDiv>
         <Form
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
@@ -68,8 +91,14 @@ class EmployeeList extends Component {
           newDepartment={this.state.department}
           newEmailId={this.state.emailId}
           newDate={this.state.date}
+          showModal={this.showModal}
+          hideModal={this.hideModal}
+          show={this.state.show}
+          handleChange={this.handleChange}
+          clearData={this.clearData}
         />
-      </div>
+        <Table items={this.state.items} />
+      </MainDiv>
     );
   }
 }
