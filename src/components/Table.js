@@ -1,5 +1,6 @@
 import React from "react";
 import { TableDiv } from "../styles/Form";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 class Table extends React.Component {
   render() {
@@ -9,6 +10,7 @@ class Table extends React.Component {
         <TableDiv>
           <thead>
             <tr>
+              <th></th>
               <th>Name</th>
               <th>EmployeeID</th>
               <th>Department</th>
@@ -20,6 +22,7 @@ class Table extends React.Component {
             return (
               <tbody key={item}>
                 <tr>
+                  <IoIosCloseCircleOutline onClick={this.props.deleteRow} />
                   <td>{item.username}</td>
                   <td>{item.employeeId}</td>
                   <td>{item.department}</td>

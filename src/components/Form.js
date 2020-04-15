@@ -2,11 +2,12 @@ import React from "react";
 import {
   FormDiv,
   ModalDiv,
+  ModalHeaderDiv,
   ViewButton,
   CloseDiv,
   CtaDiv,
 } from "../styles/Form";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoIosCloseCircleOutline, IoIosAdd } from "react-icons/io";
 
 class Form extends React.Component {
   render() {
@@ -15,9 +16,12 @@ class Form extends React.Component {
       <div id="Form">
         <main>
           <Modal show={show}>
-            <CloseDiv>
-              <IoIosCloseCircleOutline onClick={hideModal} />
-            </CloseDiv>
+            <ModalHeaderDiv>
+              <h2>Add Employee Details</h2>
+              <CloseDiv>
+                <IoIosCloseCircleOutline onClick={hideModal} />
+              </CloseDiv>
+            </ModalHeaderDiv>
             <FormDiv onSubmit={this.props.handleFormSubmit}>
               <label htmlFor="username">
                 <span>Name:</span>
@@ -89,6 +93,7 @@ class Form extends React.Component {
           </Modal>
           <ViewButton>
             <button type="button" onClick={showModal}>
+              <IoIosAdd />
               New Employee
             </button>
           </ViewButton>

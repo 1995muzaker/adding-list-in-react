@@ -20,7 +20,15 @@ class EmployeeList extends Component {
       emailId: "",
       date: "",
       show: false,
-      items: [],
+      items: [
+        {
+          username: "Shaikh Muzaker",
+          employeeId: "201",
+          department: "Artificial Intelligence",
+          emailId: "shaikhmuzaker@gmail.com",
+          date: "2020-04-25",
+        },
+      ],
     };
   }
 
@@ -55,6 +63,15 @@ class EmployeeList extends Component {
       department: "it",
       emailId: "",
       date: "",
+    });
+  };
+
+  deleteRow = () => {
+    // var items = [...this.state.items];
+    // items.splice(index, 1);
+    // this.setState({ items });
+    this.setState({
+      items: this.state.items.slice(0, -1),
     });
   };
 
@@ -97,7 +114,7 @@ class EmployeeList extends Component {
           handleChange={this.handleChange}
           clearData={this.clearData}
         />
-        <Table items={this.state.items} />
+        <Table items={this.state.items} deleteRow={this.deleteRow} />
       </MainDiv>
     );
   }

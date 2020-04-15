@@ -76,6 +76,17 @@ export const TableDiv = styled.table`
     padding: 10px;
     box-sizing: border-box;
   }
+  & svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 23px;
+    height: 38px;
+    padding: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
 `;
 
 export const ModalDiv = styled.div`
@@ -111,19 +122,33 @@ export const ModalDiv = styled.div`
   }
 `;
 
+export const ModalHeaderDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+  & h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+  }
+`;
 export const ViewButton = styled.div`
   text-align: right;
   & button {
     background: #2196f3;
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     width: auto;
-    margin: auto;
+    margin: auto 0 auto auto;
     border: 0;
     padding: 8px 8px;
     border-radius: 5px;
     box-shadow: 2px 2px 5px 1px #c3c3c3;
     cursor: pointer;
+    display: flex;
+    align-items: center;
   }
 `;
 
