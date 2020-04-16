@@ -7,6 +7,7 @@ class Table extends React.Component {
     const items = this.props.items;
     return (
       <div id="Table">
+        <h2>New Hiring Details</h2>
         <TableDiv>
           <thead>
             <tr>
