@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 export const MainDiv = styled.div`
   padding: 50px;
+  @media (max-width: 1024px) {
+    padding: 25px;
+  }
+
+  & #Table {
+    overflow-x: auto;
+  }
 `;
 
 export const FormDiv = styled.form`
@@ -62,19 +69,49 @@ export const CtaDiv = styled.div`
 export const TableDiv = styled.table`
   width: 100%;
   margin: 20px 0px;
+  border-spacing: 0;
   & thead {
     background: #0083d2;
   }
   & th {
     padding: 10px;
     box-sizing: border-box;
+    border-bottom: 1px solid #cecece;
+    word-break: break-word;
+    @media (max-width: 800px) {
+      font-size: 13px;
+    }
+    @media (max-width: 600px) {
+      font-size: 9px;
+      padding: 2px;
+    }
   }
   & tbody {
     background: #ff9800;
+    display: block;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  & thead,
+  tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
   }
   & td {
-    padding: 10px;
     box-sizing: border-box;
+    border-bottom: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+    word-break: break-word;
+    @media (max-width: 800px) {
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 9px;
+      padding: 2px;
+    }
   }
   & svg {
     display: flex;
@@ -86,6 +123,7 @@ export const TableDiv = styled.table`
     padding: 6px;
     box-sizing: border-box;
     cursor: pointer;
+    border-left: 1px solid #cecece;
   }
 `;
 
@@ -111,6 +149,12 @@ export const ModalDiv = styled.div`
     box-shadow: 0px 0px 2px 2px #c3c3c3;
     padding: 15px;
     border-radius: 5px;
+    @media (max-width: 1024px) {
+      width: 50%;
+    }
+    @media (max-width: 600px) {
+      width: 80%;
+    }
   }
 
   .display-block {

@@ -3,12 +3,6 @@ import { MainDiv } from "../styles/Form";
 import Table from "./Table";
 import Form from "./Form";
 
-// const tableData = [
-//     {title: 'Write online help', assignee: 'Muzaker', status: 'working on it', epic: 'Bug', priority: 'High', estimation: '1 days' },
-//     {title: 'Write online help', assignee: 'Muzaker', status: 'working on it', epic: 'Bug', priority: 'High', estimation: '1 days' },
-//     {title: 'Write online help', assignee: 'Muzaker', status: 'working on it', epic: 'Bug', priority: 'High', estimation: '1 days' }
-// ]
-
 class EmployeeList extends Component {
   constructor() {
     super();
@@ -16,17 +10,35 @@ class EmployeeList extends Component {
     this.state = {
       username: "",
       employeeId: "",
-      department: "",
+      department: "Software Engineer",
       emailId: "",
       date: "",
+      id: "",
       show: false,
       items: [
         {
+          // id: 102,
           username: "Shaikh Muzaker",
           employeeId: "201",
           department: "Artificial Intelligence",
           emailId: "shaikhmuzaker@gmail.com",
           date: "2020-04-25",
+        },
+        {
+          // id: 103,
+          username: "Manish",
+          employeeId: "123",
+          department: "Software Engineer",
+          emailId: "manish@gmail.com",
+          date: "2020-04-20",
+        },
+        {
+          // id: 104,
+          username: "Sharon",
+          employeeId: "145",
+          department: "IT",
+          emailId: "sharon@gmail.com",
+          date: "2020-04-15",
         },
       ],
     };
@@ -47,9 +59,10 @@ class EmployeeList extends Component {
 
     this.setState({
       items,
+      // id: "",
       username: "",
       employeeId: "",
-      department: "it",
+      department: "Software Engineer",
       emailId: "",
       date: "",
       show: false,
@@ -58,21 +71,18 @@ class EmployeeList extends Component {
 
   clearData = () => {
     this.setState({
+      id: "",
       username: "",
       employeeId: "",
-      department: "it",
+      department: "Software Engineer",
       emailId: "",
       date: "",
     });
   };
 
-  deleteRow = () => {
-    // var items = [...this.state.items];
-    // items.splice(index, 1);
-    // this.setState({ items });
-    this.setState({
-      items: this.state.items.slice(0, -1),
-    });
+  deleteRow = (rowId) => {
+    const filterArray = this.state.items.filter((row) => row.employeeId !== rowId);
+    this.setState({ items: filterArray });
   };
 
   handleInputChange = (e) => {

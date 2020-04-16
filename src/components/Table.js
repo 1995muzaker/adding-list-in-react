@@ -18,20 +18,21 @@ class Table extends React.Component {
               <th>Date of Joining</th>
             </tr>
           </thead>
-          {items.map((item) => {
-            return (
-              <tbody key={item}>
-                <tr>
-                  <IoIosCloseCircleOutline onClick={this.props.deleteRow} />
+
+          <tbody>
+            {items.map((item) => {
+              return (
+                <tr key={item}>
+                  <td><IoIosCloseCircleOutline onClick={() => this.props.deleteRow(item.employeeId)} /></td>
                   <td>{item.username}</td>
                   <td>{item.employeeId}</td>
                   <td>{item.department}</td>
                   <td>{item.emailId}</td>
                   <td>{item.date}</td>
                 </tr>
-              </tbody>
-            );
-          })}
+              );
+            })}
+          </tbody>
         </TableDiv>
       </div>
     );
