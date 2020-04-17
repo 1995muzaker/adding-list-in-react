@@ -4,7 +4,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 
 class Table extends React.Component {
   render() {
-    const items = this.props.items;
+    const { items, deleteRow } = this.props;
     return (
       <div id="Table">
         <h2>New Hiring Details</h2>
@@ -24,7 +24,11 @@ class Table extends React.Component {
             {items.map((item) => {
               return (
                 <tr key={item}>
-                  <td><IoIosCloseCircleOutline onClick={() => this.props.deleteRow(item.employeeId)} /></td>
+                  <td>
+                    <IoIosCloseCircleOutline
+                      onClick={() => deleteRow(item.employeeId)}
+                    />
+                  </td>
                   <td>{item.username}</td>
                   <td>{item.employeeId}</td>
                   <td>{item.department}</td>

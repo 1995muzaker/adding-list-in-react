@@ -4,45 +4,38 @@ import Table from "./Table";
 import Form from "./Form";
 
 class EmployeeList extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      username: "",
-      employeeId: "",
-      department: "Software Engineer",
-      emailId: "",
-      date: "",
-      id: "",
-      show: false,
-      items: [
-        {
-          // id: 102,
-          username: "Shaikh Muzaker",
-          employeeId: "201",
-          department: "Artificial Intelligence",
-          emailId: "shaikhmuzaker@gmail.com",
-          date: "2020-04-25",
-        },
-        {
-          // id: 103,
-          username: "Manish",
-          employeeId: "123",
-          department: "Software Engineer",
-          emailId: "manish@gmail.com",
-          date: "2020-04-20",
-        },
-        {
-          // id: 104,
-          username: "Sharon",
-          employeeId: "145",
-          department: "IT",
-          emailId: "sharon@gmail.com",
-          date: "2020-04-15",
-        },
-      ],
-    };
-  }
+  state = {
+    username: "",
+    employeeId: "",
+    department: "Software Engineer",
+    emailId: "",
+    date: "",
+    id: "",
+    show: false,
+    items: [
+      {
+        username: "Shaikh Muzaker",
+        employeeId: "201",
+        department: "Artificial Intelligence",
+        emailId: "shaikhmuzaker@gmail.com",
+        date: "2020-04-25",
+      },
+      {
+        username: "Manish",
+        employeeId: "123",
+        department: "Software Engineer",
+        emailId: "manish@gmail.com",
+        date: "2020-04-20",
+      },
+      {
+        username: "Sharon",
+        employeeId: "145",
+        department: "IT",
+        emailId: "sharon@gmail.com",
+        date: "2020-04-15",
+      },
+    ],
+  };
 
   handleFormSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +52,6 @@ class EmployeeList extends Component {
 
     this.setState({
       items,
-      // id: "",
       username: "",
       employeeId: "",
       department: "Software Engineer",
@@ -81,7 +73,9 @@ class EmployeeList extends Component {
   };
 
   deleteRow = (rowId) => {
-    const filterArray = this.state.items.filter((row) => row.employeeId !== rowId);
+    const filterArray = this.state.items.filter(
+      (row) => row.employeeId !== rowId
+    );
     this.setState({ items: filterArray });
   };
 

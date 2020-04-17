@@ -11,7 +11,20 @@ import { IoIosCloseCircleOutline, IoIosAdd } from "react-icons/io";
 
 class Form extends React.Component {
   render() {
-    const { show, hideModal, showModal } = this.props;
+    const {
+      show,
+      hideModal,
+      showModal,
+      handleFormSubmit,
+      handleInputChange,
+      handleChange,
+      newDepartment,
+      newUsername,
+      newEmployeeId,
+      newEmailId,
+      newDate,
+      clearData,
+    } = this.props;
     return (
       <div id="Form">
         <main>
@@ -22,16 +35,16 @@ class Form extends React.Component {
                 <IoIosCloseCircleOutline onClick={hideModal} />
               </CloseDiv>
             </ModalHeaderDiv>
-            <FormDiv onSubmit={this.props.handleFormSubmit}>
+            <FormDiv onSubmit={handleFormSubmit}>
               <label htmlFor="username">
                 <span>Name:</span>
                 <input
                   required
                   id="username"
-                  value={this.props.newUsername}
+                  value={newUsername}
                   type="text"
                   name="username"
-                  onChange={this.props.handleInputChange}
+                  onChange={handleInputChange}
                 />
               </label>
               <label htmlFor="employeeId">
@@ -39,18 +52,15 @@ class Form extends React.Component {
                 <input
                   required
                   id="employeeId"
-                  value={this.props.newEmployeeId}
+                  value={newEmployeeId}
                   type="text"
                   name="employeeId"
-                  onChange={this.props.handleInputChange}
+                  onChange={handleInputChange}
                 />
               </label>
               <label htmlFor="department">
                 <span>Department:</span>
-                <select
-                  value={this.props.newDepartment}
-                  onChange={this.props.handleChange}
-                >
+                <select value={newDepartment} onChange={handleChange}>
                   <option value="IT">IT</option>
                   <option value="Business Developnment">
                     Business Developnment
@@ -66,10 +76,10 @@ class Form extends React.Component {
                 <input
                   required
                   id="emailId"
-                  value={this.props.newEmailId}
+                  value={newEmailId}
                   type="email"
                   name="emailId"
-                  onChange={this.props.handleInputChange}
+                  onChange={handleInputChange}
                 />
               </label>
               <label htmlFor="date">
@@ -77,17 +87,17 @@ class Form extends React.Component {
                 <input
                   required
                   id="date"
-                  value={this.props.newDate}
+                  value={newDate}
                   type="date"
                   name="date"
-                  onChange={this.props.handleInputChange}
+                  onChange={handleInputChange}
                 />
               </label>
               <CtaDiv>
                 <button type="submit" value="Submit">
                   Submit Details
                 </button>
-                <button onClick={this.props.clearData}>Clear</button>
+                <button onClick={clearData}>Clear</button>
               </CtaDiv>
             </FormDiv>
           </Modal>
@@ -98,13 +108,12 @@ class Form extends React.Component {
             </button>
           </ViewButton>
         </main>
-        {/* <h3>Add a new item to the table:</h3> */}
       </div>
     );
   }
 }
 
-const Modal = ({ handleClose, show, children }) => {
+const Modal = ({ show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
